@@ -16,7 +16,7 @@ def main():
         print("OPENAI_API_KEY :已設定 ")
     else:
         print("未設定OPENAI_API_KEY ; 請檢查 .env 或系統環境變數 ")
-
+        return
     print(api_key)
     print("Hello, World!")   
 if __name__ == "__main__":
