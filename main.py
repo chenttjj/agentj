@@ -40,9 +40,10 @@ def main():
         if not user_input:
             continue
 
-        response = llm.invoke(user_input)
-        print("Akuma:", response.content)
-
+        
+        for chunk in llm.stream(user_input):
+            print(chunk.content,end="",flush=True)
+        print()
 
     print(f"Using model: {model_name}")
     message = llm.invoke("Hello, World!")
