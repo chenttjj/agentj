@@ -32,6 +32,17 @@ def main():
         api_key=api_key,
         temperature=temperature
     )
+    while True:
+        user_input = input("you :").strip()
+        if user_input.lower() in ("quit", "exit", "q"):
+            print("bye")
+            break
+        if not user_input:
+            continue
+
+        response = llm.invoke(user_input)
+        print("Akuma:", response.content)
+
 
     print(f"Using model: {model_name}")
     message = llm.invoke("Hello, World!")
