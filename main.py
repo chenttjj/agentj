@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage, AIMessage
 
 
 load_dotenv()
@@ -26,12 +27,15 @@ def main():
     except ValueError:
         temperature = 0.0
 
+    messages = []
+
     llm = ChatOpenAI(
         model=model_name,
         base_url=base_url,
         api_key=api_key,
         temperature=temperature
     )
+
     while True:
         user_input = input("you :").strip()
         if user_input.lower() in ("quit", "exit", "q"):
@@ -40,15 +44,19 @@ def main():
         if not user_input:
             continue
 
-        
-        for chunk in llm.stream(user_input):
+        human_message = HumanMessage(content=user_input)
+        context_messages = [*messages, human_message]
+
+        reply_parts = []
+        for chunk in llm.stream(context_messages):
             print(chunk.content,end="",flush=True)
+            reply_parts.append(chunk.content)
         print()
 
-    print(f"Using model: {model_name}")
-    message = llm.invoke("Hello, World!")
-    print(message.content)
+        assistant_message = AIMessage(content="".join(reply_parts))
 
+        messages.append(human_message)
+        messages.append(assistant_message)
 
 if __name__ == "__main__":
     main()
