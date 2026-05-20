@@ -24,7 +24,7 @@ MEMORY_PATH = MEMORY_DIR / "MEMORY.md"
 MEMORY_HISTORY_PATH = MEMORY_DIR / "HISTORY.md"
 BUILTIN_SKILLS_DIR = PROJECT_ROOT / ".agents" / "skills"
 
-TOKEN_BUDGET = int(os.getenv("TOKEN_BUDGET", "8000"))
+TOKEN_BUDGET = int(os.getenv("TOKEN_BUDGET", "30000"))
 MEMORY_MAX_CHARS = int(os.getenv("MEMORY_MAX_CHARS", "6000"))
 TOOL_OUTPUT_MAX_CHARS = int(os.getenv("TOOL_OUTPUT_MAX_CHARS", "4000"))
 CONSOLIDATION_MAX_RETRIES = int(os.getenv("CONSOLIDATION_MAX_RETRIES", "2"))
@@ -770,6 +770,7 @@ def main() -> None:
     print("已讀取 OPENAI_API_KEY，可以呼叫模型。輸入 quit/exit/q 離開；附圖可用 `/image 相對路徑 問題`。")
 
     model_name = os.getenv("OPENAI_MODEL_NAME") or os.getenv("MODEL") or "gpt-4o"
+    print(model_name)
     temperature_raw = os.getenv("TEMPERATURE", "0")
     try:
         temperature = float(temperature_raw)
