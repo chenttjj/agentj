@@ -150,3 +150,10 @@ cython_debug/
 # PyCharm
 .idea/
 
+# Chainlit runtime artifacts
+/.chainlit/
+/chainlit_app/.chainlit/translations/
+chainlit_app/.files/
+chainlit_app/__pycache__/
+session.jsonl
+chainlit_app/session.jsonl

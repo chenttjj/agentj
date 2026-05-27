@@ -8,3 +8,8 @@ dependencies = [
     "langchain-openai>=1.1.16",
     "python-dotenv>=1.2.2",
 ]
+
+[tool.uv.workspace]
+members = [
+    "chainlit_app",
+]
