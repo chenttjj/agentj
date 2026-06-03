@@ -319,6 +319,42 @@ def render_main() -> str:
         st.markdown('</div>', unsafe_allow_html=True)
 
         st.markdown('<div class="daw-panel">', unsafe_allow_html=True)
+        st.markdown('<div class="daw-title">🎸 吉他 / Rap / R&B 學習幫助小工具</div>', unsafe_allow_html=True)
+        practice_mode = st.radio("學習模式", ["吉他", "Rap", "R&B"], horizontal=True, key="learning_mode")
+
+        if practice_mode == "吉他":
+            st.selectbox("今日練習和弦", ["C", "G", "Am", "Em", "F", "Dm"], key="guitar_chord")
+            st.slider("吉他練習時間（分鐘）", 5, 120, 20, key="guitar_minutes")
+            st.multiselect(
+                "吉他練習重點",
+                ["和弦切換", "刷弦節奏", "封閉和弦", "指彈", "節拍器穩定度"],
+                default=["和弦切換"],
+                key="guitar_focus",
+            )
+            st.info("建議：先用慢速節拍器練和弦切換，再逐步加快速度。")
+        elif practice_mode == "Rap":
+            st.slider("Rap 練習 BPM", 60, 180, 92, key="rap_bpm")
+            st.selectbox("押韻主題", ["自我介紹", "校園生活", "夢想", "友情", "挑戰"], key="rap_theme")
+            st.multiselect(
+                "Rap 練習重點",
+                ["咬字", "節奏", "換氣", "押韻", "Flow 變化"],
+                default=["咬字", "節奏"],
+                key="rap_focus",
+            )
+            st.info("建議：先用較慢 BPM 練清楚咬字，再加入押韻與 Flow 變化。")
+        else:
+            st.slider("R&B 練習 BPM", 60, 140, 78, key="rnb_bpm")
+            st.selectbox("R&B 練習主題", ["轉音", "律動", "感情詮釋", "和聲", "真假音轉換"], key="rnb_theme")
+            st.multiselect(
+                "R&B 練習重點",
+                ["轉音", "拍點穩定", "句尾處理", "情感表現", "呼吸控制"],
+                default=["情感表現", "拍點穩定"],
+                key="rnb_focus",
+            )
+            st.info("建議：先用慢速伴奏練習句尾轉音與情緒表達，再逐步加入更多律動細節。")
+        st.markdown('</div>', unsafe_allow_html=True)
+
+        st.markdown('<div class="daw-panel">', unsafe_allow_html=True)
         st.markdown('<div class="daw-title">📝 建議怎麼問 Agent</div>', unsafe_allow_html=True)
         st.markdown(
             """
@@ -326,6 +362,7 @@ def render_main() -> str:
 - 幫我新增一個可切換 Piano / Guitar / Bass / Drums / Strings 的樂器軌域。
 - 幫我把 Mixer 改成 8 軌。
 - 幫我做成深色科技風。
+- 幫我加一個吉他和 Rap 學習小工具。
             """
         )
         st.markdown('</div>', unsafe_allow_html=True)
