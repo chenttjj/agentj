@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "ace-music": {
+      "source": "mz038197/vanscoding-skills",
+      "sourceType": "github",
+      "skillPath": "Media/ace-music/SKILL.md",
+      "computedHash": "277b3dc6706359c60a833ae5d5752d389c9ddeef69b406ca90d65dbbd39d65b6"
+    },
     "docx": {
       "source": "mz038197/vanscoding-skills",
       "sourceType": "github",
