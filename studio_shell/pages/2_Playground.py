@@ -61,14 +61,12 @@ def render_main() -> str:
     st.divider()
     st.markdown("#### 計數器（AI coding 小練習）")
 
-    metric_col, minus_col, plus_col = st.columns([2, 1, 1])
+    metric_col, btn_col = st.columns([2, 1])
     metric_col.metric("Count", count)
-    if minus_col.button("-1", use_container_width=True):
-        count = max(0, count - 1)
-    if plus_col.button("+1", use_container_width=True):
+    if btn_col.button("+1", use_container_width=True):
         count += 1
 
-    st.caption("可用 +1 / -1 調整計數器，最低維持在 0。")
+    st.caption("試著請 Agent 在 `pages/2_Playground.py` 加一個「-1」按鈕。")
 
     save_page_data(
         PAGE_NAME,
