@@ -19,6 +19,12 @@
       "skillPath": "Documents/pdf/SKILL.md",
       "computedHash": "b01d70063be7115b374550f7f95498b34c861d1eb348cb807d697d29a5c2539a"
     },
+    "peas-vtuber-coach": {
+      "source": "mz038197/vanscoding-skills",
+      "sourceType": "github",
+      "skillPath": "Teacher/peas-vtuber-coach/SKILL.md",
+      "computedHash": "dfb87861a1d8196ad16bd6b744fc868e215192e507cd6a5262d9e40a747815e1"
+    },
     "peas-workshop-advanced-coach": {
       "source": "mz038197/vanscoding-skills",
       "sourceType": "github",
