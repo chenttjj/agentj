@@ -1,0 +1,19 @@
+flowchart LR
+    subgraph CLIENT["學生裝置"]
+        BR["瀏覽器<br/>Streamlit 左欄 + Agent 右欄"]
+    end
+
+    subgraph ROUTER["學校內部"]
+        OR["Ollama Router<br/>統一介接 LLM"]
+        LLMS["校內 LLM 模型<br/>qwen2.5 / gemma 等"]
+    end
+
+    BR -->|"HTTPS / 校內網段"| OR
+    OR -->|"本地推論"| LLMS
+    LLMS -->|"回傳文字 / JSON"| OR
+    OR -->|"回應"| BR
+
+    classDef router fill:#C86A4F,stroke:#874F36,color:#fff
+    classDef llm fill:#879673,stroke:#5C6E50,color:#fff
+    class OR router
+    class LLMS llm

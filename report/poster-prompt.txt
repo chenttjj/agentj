@@ -1,0 +1,24 @@
+Generate a vertical 2:3 academic capstone exhibition poster (1024x1536 px).
+
+Title at top: "Mood Beat" (big bold sans-serif).
+Subtitle (Traditional Chinese): 心情 × 呼吸 × 音樂 — 你的專屬節奏
+
+Theme colors: sage green (#879673), terracotta orange (#C86A4F), cream background (#F5EFE4).
+Style: clean, modern, minimal, high school capstone exhibition poster.
+
+Three reference image panels are attached (server topology diagram, project architecture diagram, app demo screenshot). Place them as 3 vertical panels in the middle of the poster. Above each panel add a small Traditional Chinese label:
+- 學校 Server 環境
+- Mood Beat 個人架構
+- Demo 截圖
+
+Add a short Traditional Chinese intro (about 50-80 characters) between the title and panels:
+「Mood Beat 透過情緒輸入、呼吸穩定、AI 音樂推薦，幫助使用者紓壓與放鬆。」
+
+Bottom footer (centered, small text): 成果 · 創新 · 技術
+
+Strict requirements:
+- No English placeholders, no Lorem Ipsum
+- No API keys, no router URLs, no IP addresses
+- Do not invent new images — use the three attached reference panels as-is
+- All text in Traditional Chinese except the title
+- Aspect ratio exactly 2:3 (portrait)

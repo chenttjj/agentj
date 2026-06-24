@@ -1,0 +1,24 @@
+flowchart LR
+    subgraph LEFT["左欄網頁（Mood Beat 頁）"]
+        UI["情緒輸入區<br/>心情值滑桿・壓力值滑桿<br/>音樂風格下拉選單"]
+        BTN["動作按鈕<br/>開始呼吸・生成 Beat"]
+        SHOW["結果顯示區<br/>呼吸節奏提示<br/>推薦音樂風格文字"]
+    end
+
+    subgraph RIGHT["右欄 AI 助手"]
+        CHAT["聊天面板<br/>使用者提問"]
+        AGENT["AI 大腦<br/>讀取情緒資料<br/>推理・生成建議"]
+    end
+
+    subgraph STORE["資料存放"]
+        NOTE["本次情緒摘要<br/>心情值・壓力值・音樂偏好"]
+        JSON["節拍參數檔<br/>JSON 格式"]
+    end
+
+    UI -->|"整理成一段文字摘要"| NOTE
+    NOTE -->|"每則問題附上摘要"| CHAT
+    CHAT -->|"送出問題"| AGENT
+    AGENT -->|"寫入節拍參數"| JSON
+    AGENT -->|"回傳文字建議 + JSON"| SHOW
+    BTN -->|"觸發呼吸引導"| SHOW
+    JSON -->|"讀取參數"| SHOW
