@@ -1,0 +1,16 @@
+{
+  "nickname": "",
+  "mood": "平靜",
+  "custom_mood": "",
+  "energy": 55,
+  "stress": 48,
+  "focus_need": 60,
+  "note": "",
+  "breath_pattern": "放鬆入門",
+  "before_stress": 48,
+  "after_stress": 40,
+  "beat_mode": "Lo-fi",
+  "soundscape": "雨聲",
+  "add_voice": true,
+  "want_drums": true
+}
