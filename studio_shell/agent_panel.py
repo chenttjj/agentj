@@ -139,14 +139,7 @@ def _build_talking_avatar_base64(phase: int) -> str:
 
 
 def _avatar_data_url(emotion: str) -> str:
-    if emotion == "talking":
-        phase = int(st.session_state.get("avatar_talking_phase", 0))
-        return f"data:image/gif;base64,{_build_talking_avatar_base64(phase)}"
-
-    avatar_path = AVATAR_DIR / f"{emotion}.gif"
-    if avatar_path.is_file():
-        return f"data:image/gif;base64,{_read_avatar_file_base64(str(avatar_path))}"
-
+    # 優先使用靜態 PNG；若不存在再 fallback 到同狀態的 GIF。
     source_path = _avatar_source_path(emotion)
     mime = "image/png" if source_path.suffix.lower() == ".png" else "image/gif"
     return f"data:{mime};base64,{_read_avatar_file_base64(str(source_path))}"
